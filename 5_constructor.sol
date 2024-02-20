@@ -18,7 +18,7 @@ contract MappingExample {
 
     // Constructor to initialize the contract
     constructor() {
-        // For the sake of example, let's initialize a default value for the contract creator
+        // Example, this will initialize a default value for the contract creator
         valueMapping[msg.sender] = 100;
     }
 
