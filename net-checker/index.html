@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MetaMask Network Checker</title>
+    
+    <!-- Styling for our page -->
+    <style>
+        /* Reset and basic styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        /* Main container */
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+        
+        /* Title styling */
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+        
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        
+        /* Button styling */
+        .connect-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 18px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            font-weight: bold;
+        }
+        
+        .connect-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        .connect-button:active {
+            transform: translateY(0);
+        }
+        
+        /* Network information display */
+        .network-info {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            display: none; /* Hidden by default */
+        }
+        
+        .network-emoji {
+            font-size: 60px;
+            margin-bottom: 15px;
+        }
+        
+        .network-name {
+            font-size: 24px;
+            color: #333;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .chain-id {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        
+        .network-status {
+            display: inline-block;
+            padding: 8px 16px;
+            background: #28a745;
+            color: white;
+            border-radius: 20px;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        
+        /* Error message styling */
+        .error-message {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <h1>🦊 MetaMask Network Checker</h1>
+        <p class="subtitle">Check which Ethereum network you're connected to</p>
+        
+        <!-- Connect Button -->
+        <button class="connect-button" id="connectBtn" onclick="connectMetaMask()">
+            Connect MetaMask
+        </button>
+        
+        <!-- Network Information (hidden initially) -->
+        <div class="network-info" id="networkInfo">
+            <div class="network-emoji" id="networkEmoji">🌐</div>
+            <div class="network-name" id="networkName">Network Name</div>
+            <div class="chain-id">Chain ID: <strong id="chainId">0</strong></div>
+            <div class="network-status">✓ Connected</div>
+        </div>
+        
+        <!-- Error Message (hidden initially) -->
+        <div class="error-message" id="errorMessage">
+            Error message will appear here
+        </div>
+    </div>
+    
+    <!-- Load Web3.js library from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+    
+    <!-- Load our custom JavaScript -->
+    <script src="app.js"></script>
+</body>
+</html>
